@@ -7,7 +7,7 @@ $setDb['db_user']='root';
 $setDb['db_password']='';
 
 //folder templates
-$template='templates/AdminLTE-2.4.17/';
+$templates='templates/AdminLTE-2.4.17/';
 
 //session
 $setSession['prefix']='sip';
