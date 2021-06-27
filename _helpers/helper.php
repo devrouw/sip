@@ -21,7 +21,7 @@ function templates($a = '')
     return assets($GLOBALS['templates'] . $a);
 }
 
-function content_open()
+function content_open($title='')
 {
     return '
     <!-- Main content -->
@@ -30,7 +30,7 @@ function content_open()
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+          <h3 class="box-title">'.$title.'</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"

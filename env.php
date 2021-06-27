@@ -1,10 +1,10 @@
 <?php
 defined('env') OR exit('Akses langsung ke Skrip ini diblokir');
 
-$setDb['db_host']='127.0.0.1';
-$setDb['db_name']='';
-$setDb['db_user']='root';
-$setDb['db_password']='';
+$setDb['db_host']='localhost';
+$setDb['db_name']='u250888599_sip';
+$setDb['db_user']='u250888599_usersip';
+$setDb['db_password']='Siplah';
 
 //folder templates
 $templates='templates/AdminLTE-2.4.17/';
