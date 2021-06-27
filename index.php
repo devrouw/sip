@@ -1,5 +1,6 @@
 <?php
 include '_loader.php';
+$setTempate = true;
 if (isset($_GET['halaman'])) {
     $halaman = $_GET['halaman'];
 } else {
@@ -12,8 +13,10 @@ if (!file_exists($file)) {
 } else {
     include $file;
 }
-$halaman = ob_get_contents();
+$content = ob_get_contents();
 ob_end_clean();
+
+if($setTempate==true){
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +43,7 @@ ob_end_clean();
                 </ol>
             </section>
 
-            <?php echo $halaman; ?>
+            <?php echo $content; ?>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -51,3 +54,6 @@ ob_end_clean();
 </body>
 
 </html>
+<?php } else {
+    echo $content;
+}?>
