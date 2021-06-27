@@ -1,6 +1,6 @@
 <?php
 include '_loader.php';
-$setTempate = true;
+$setTemplate = true;
 if (isset($_GET['halaman'])) {
     $halaman = $_GET['halaman'];
 } else {
@@ -16,7 +16,7 @@ if (!file_exists($file)) {
 $content = ob_get_contents();
 ob_end_clean();
 
-if($setTempate==true){
+if($setTemplate==true){
 ?>
 
 <!DOCTYPE html>
