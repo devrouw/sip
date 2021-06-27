@@ -47,6 +47,7 @@ if($setTempate==true){
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+        <?php
         include '_layouts/footer.php';
         include '_layouts/javascript.php';
         ?>
