@@ -12,9 +12,9 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         $db->where('id_kecamatan',$_GET['id']);
 		$get=$db->ObjectBuilder()->getOne('tb_kecamatan');
         if($db->count>0){
-            $id_kecamatan=$row->$id_kecamatan;
-            $kd_kecamatan=$row->$kd_kecamatan;
-            $nm_kecamatan=$row->$nm_kecamatan;
+            $id_kecamatan=$row->id_kecamatan;
+            $kd_kecamatan=$row->kd_kecamatan;
+            $nm_kecamatan=$row->nm_kecamatan;
         }
     }
 ?>
