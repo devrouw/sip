@@ -3,18 +3,51 @@ $title = 'Kecamatan';
 $judul = $title;
 $url = 'kecamatan';
 
+if (isset($_POST['simpan'])) {
+    if ($_POST['id_kecamatan'] == "") {
+        $data['kd_kecamatan'] = $_POST['kd_kecamatan'];
+        $data['nm_kecamatan'] = $_POST['nm_kecamatan'];
+        $db->insert("tb_kecamatan", $data);
+?>
+        <script type="text/javascript">
+            window.alert('Berhasil Disimpan');
+            window.location.href = "<?= url('kecamatan') ?>";
+        </script>
+    <?php
+    } else {
+        $data['kd_kecamatan'] = $_POST['kd_kecamatan'];
+        $data['nm_kecamatan'] = $_POST['nm_kecamatan'];
+        $db->where('id_kecamatan', $_POST['id_kecamatan']);
+        $db->update("tb_kecamatan", $data);
+    ?>
+        <script type="text/javascript">
+            window.alert('Berhasil Diubah');
+            window.location.href = "<?= url('kecamatan') ?>";
+        </script>
+    <?php }
+}
+
+if (isset($_GET['hapus'])) {
+    $db->where('id_kecamatan', $_GET['id']);
+    $db->delete("tb_kecamatan"); ?>
+    <script type="text/javascript">
+        window.alert('Berhasil Dihapus');
+        window.location.href = "<?= url('kecamatan') ?>";
+    </script>
+<?php }
+
 if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
     $id_kecamatan = "";
     $kd_kecamatan = "";
     $nm_kecamatan = "";
 
     if (isset($_GET['ubah']) and isset($_GET['id'])) {
-        $db->where('id_kecamatan',$_GET['id']);
-		$row=$db->ObjectBuilder()->getOne('tb_kecamatan');
-        if($db->count>0){
-            $id_kecamatan=$row->id_kecamatan;
-            $kd_kecamatan=$row->kd_kecamatan;
-            $nm_kecamatan=$row->nm_kecamatan;
+        $db->where('id_kecamatan', $_GET['id']);
+        $row = $db->ObjectBuilder()->getOne('tb_kecamatan');
+        if ($db->count > 0) {
+            $id_kecamatan = $row->id_kecamatan;
+            $kd_kecamatan = $row->kd_kecamatan;
+            $nm_kecamatan = $row->nm_kecamatan;
         }
     }
 ?>
