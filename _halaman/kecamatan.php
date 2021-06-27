@@ -21,7 +21,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
 ?>
 
     <?= content_open('Form Kecamatan') ?>
-    <form action="" method="post">
+    <form method="post">
         <?= input_hidden('id_kecamatan', $id_kecamatan) ?>
         <div class="form-group">
             <label>Kode Kecamatan</label>
