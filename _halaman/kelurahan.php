@@ -5,6 +5,10 @@ $url = 'kelurahan';
 $setTemplate = true;
 
 if (isset($_POST['simpan'])) {
+    $file=upload('geojson_kelurahan','geojson');
+    if($file!=false){
+        $data['geojson_kelurahan']=$file;
+    }
     if ($_POST['id_kelurahan'] == "") {
         $data['kd_kelurahan'] = $_POST['kd_kelurahan'];
         $data['nm_kelurahan'] = $_POST['nm_kelurahan'];
@@ -41,6 +45,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
     $id_kelurahan = "";
     $kd_kelurahan = "";
     $nm_kelurahan = "";
+    $geojson_kelurahan = "";
 
     if (isset($_GET['ubah']) and isset($_GET['id'])) {
         $db->where('id_kelurahan', $_GET['id']);
@@ -49,12 +54,13 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
             $id_kelurahan = $row->id_kelurahan;
             $kd_kelurahan = $row->kd_kelurahan;
             $nm_kelurahan = $row->nm_kelurahan;
+            $geojson_kelurahan = $row->geojson_kelurahan;
         }
     }
 ?>
 
     <?= content_open('Form Kelurahan') ?>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <?= input_hidden('id_kelurahan', $id_kelurahan) ?>
         <div class="form-group">
             <label>Kode Kelurahan</label>
@@ -63,6 +69,10 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <div class="form-group">
             <label>Nama Kelurahan</label>
             <?= input_text('nm_kelurahan', $nm_kelurahan) ?>
+        </div>
+        <div class="form-group">
+            <label>GeoJSON</label>
+            <?= input_text('geojson_kelurahan', $geojson_kelurahan) ?>
         </div>
         <div class="form-group">
             <button type="submit" name="simpan" class="btn btn-info"> <i class="fa fa-save"></i>Simpan</button>
@@ -94,7 +104,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
                     <td><?= $no ?></td>
                     <td><?= $row->kd_kelurahan ?></td>
                     <td><?= $row->nm_kelurahan ?></td>
-                    <td><?= $row->gejson_kelurahan ?></td>
+                    <td><a href="<?=assets('unggah/geojson/'.$row->geojson_kelurahan)?>" target="_BLANK">?= $row->geojson_kelurahan ?></a></td>
                     <td>
                         <a href="<?= url($url . '&ubah&id=' . $row->id_kelurahan) ?>" class="btn btn-info"> <i class="fa fa-edit"></i>Ubah</a>
                         <a href="<?= url($url . '&hapus&id=' . $row->id_kelurahan) ?>" class="btn btn-danger" onclick="return confirm('Hapus Data?')"> <i class="fa fa-trash"></i>Hapus</a>
