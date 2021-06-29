@@ -104,7 +104,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
                     <td><?= $no ?></td>
                     <td><?= $row->kd_kelurahan ?></td>
                     <td><?= $row->nm_kelurahan ?></td>
-                    <td><a href="<?=assets('unggah/geojson/'.$row->geojson_kelurahan)?>" target="_BLANK"><?= $row->geojson_kelurahan ?></a></td>
+                    <td><a href="<?=assets('unggah/geojson/'.$row->geojson_kelurahan)?>" target="_BLANK"><?=$row->geojson_kelurahan?></a></td>
                     <td>
                         <a href="<?= url($url . '&ubah&id=' . $row->id_kelurahan) ?>" class="btn btn-info"> <i class="fa fa-edit"></i>Ubah</a>
                         <a href="<?= url($url . '&hapus&id=' . $row->id_kelurahan) ?>" class="btn btn-danger" onclick="return confirm('Hapus Data?')"> <i class="fa fa-trash"></i>Hapus</a>
