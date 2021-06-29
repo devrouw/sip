@@ -72,7 +72,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         </div>
         <div class="form-group">
             <label>GeoJSON</label>
-            <?= input_text('geojson_kelurahan', $geojson_kelurahan) ?>
+            <?= input_file('geojson_kelurahan', $geojson_kelurahan) ?>
         </div>
         <div class="form-group">
             <button type="submit" name="simpan" class="btn btn-info"> <i class="fa fa-save"></i>Simpan</button>
