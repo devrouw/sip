@@ -2,6 +2,7 @@
 $title = 'Kecamatan';
 $judul = $title;
 $url = 'kecamatan';
+$setTemplate = true;
 
 if (isset($_POST['simpan'])) {
     if ($_POST['id_kecamatan'] == "") {
