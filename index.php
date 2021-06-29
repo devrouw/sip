@@ -16,7 +16,7 @@ $content = ob_get_contents();
 ob_end_clean();
 
 if ($setTemplate == true) {
-    if ($session->get("logged") != true) {
+    if ($session->get("logged") !== true) {
         redirect(url('login'));
     }
 ?>

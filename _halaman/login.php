@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
         <h5><i class="icon fas fa-ban"></i> Success!</h5>
         Username atau Password Benar</div>');
-        redirect(url('beranda'));
+        redirect(url("beranda"));
     }
     else{
         $session->set("logged", false);
@@ -41,7 +41,7 @@ if (isset($_POST['login'])) {
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#"><b>Admin</b>LTE</a>
+            <a href="#"><b>Login</b>SIP</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
@@ -58,15 +58,8 @@ if (isset($_POST['login'])) {
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox"> Remember Me
-                            </label>
-                        </div>
-                    </div>
                     <!-- /.col -->
-                    <div class="col-xs-4">
+                    <div class="col-xs-12">
                         <button type="submit" name="login" class="btn btn-primary btn-block btn-flat">Sign In</button>
                     </div>
                     <!-- /.col -->
