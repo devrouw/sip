@@ -1,6 +1,5 @@
 <?php
 include '_loader.php';
-$setTemplate = true;
 if (isset($_GET['halaman'])) {
     $halaman = $_GET['halaman'];
 } else {
@@ -17,6 +16,9 @@ $content = ob_get_contents();
 ob_end_clean();
 
 if($setTemplate==true){
+    if($session->get("logged")!=true){
+        redirect(url('login'));
+    }
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +55,6 @@ if($setTemplate==true){
         ?>
     </div>
 </body>
-
 </html>
 <?php } else {
     echo $content;

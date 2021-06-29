@@ -11,6 +11,11 @@ function assets($a = '')
     return base_url($getbase_assets . $a);
 }
 
+function redirect($a=''){
+  header("location: ".$a);
+  exit;
+}
+
 function url($a = '', $b = '')
 {
     return base_url($b . '?halaman=' . $a);

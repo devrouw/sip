@@ -1,11 +1,32 @@
 <?php
 $setTemplate = false;
-// if (isset($_POST['login'])) {
-//     $session::set("logged", true);
-//     echo $session->get("logged");
-//     redirect(url("beranda"));
-// }
-// echo $session->get("logged") . 'sss';
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $db->where("username",$username);
+    $db->where("password",$password);
+    $data = $db->ObjectBuilder()->getOne("tb_akun");
+    if($db->count>0){
+        $session->set("logged", true);
+        $session->set("username", $data->username);
+        $session->set("id_akun", $data->id_akun);
+        $session->set("info", '<div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h5><i class="icon fas fa-ban"></i> Success!</h5>
+        Username atau Password Benar</div>');
+        redirect(url('beranda'));
+    }
+    else{
+        $session->set("logged", false);
+        $session->set("info", '<div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h5><i class="icon fas fa-ban"></i> Error!</h5>
+        Username atau Password Salah
+      </div>');
+      redirect(url('login'));
+    }
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,19 +41,20 @@ $setTemplate = false;
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+            <a href="#"><b>Admin</b>LTE</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Sign in to start your session</p>
-
-            <form action="../../index2.html" method="post">
+            <form method="post">
+                <label>Nama Pengguna</label>
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="text" class="form-control" name="username" placeholder="Username">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
+                <label>Kata Sandi</label>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
@@ -45,18 +67,12 @@ $setTemplate = false;
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <button type="submit" name="login" class="btn btn-primary btn-block btn-flat">Sign In</button>
                     </div>
                     <!-- /.col -->
                 </div>
             </form>
-            <div class="social-auth-links text-center">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-                    Facebook</a>
-                <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-                    Google+</a>
-            </div>
+            <?=$session->pull("info")?>
         </div>
         <!-- /.login-box-body -->
     </div>
@@ -65,14 +81,15 @@ $setTemplate = false;
 <?php
 include '_layouts/javascript.php';
 ?>
-<script src="<?=templates()?>plugins/iCheck/icheck.min.js"></script>
+<script src="<?= templates() ?>plugins/iCheck/icheck.min.js"></script>
 <script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
+    $(function() {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' /* optional */
+        });
     });
-  });
 </script>
+
 </html>

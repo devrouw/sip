@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '10c6e760cd4fab918363bfed1995fa11fb4d74e6',
+        'reference' => '7b066fa9e672d9c350d5c119b805862a244615b2',
         'name' => 'shadev/sip',
         'dev' => true,
     ),
@@ -36,7 +36,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '10c6e760cd4fab918363bfed1995fa11fb4d74e6',
+            'reference' => '7b066fa9e672d9c350d5c119b805862a244615b2',
             'dev_requirement' => false,
         ),
         'verot/class.upload.php' => array(
