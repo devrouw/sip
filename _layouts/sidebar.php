@@ -31,7 +31,7 @@
             <i class="fa fa-dashboard"></i> <span>Beranda</span>
           </a>
         </li>
-        <li><a href="<?=url('kecamatan')?>"><i class="fa fa-circle-o"></i> Kecamatan</a></li>
+        <li><a href="<?=url('kelurahan')?>"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
 
         <li class="treeview">
           <a href="#">
