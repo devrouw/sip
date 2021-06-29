@@ -23,7 +23,7 @@ if (isset($_POST['login'])) {
         <h5><i class="icon fas fa-ban"></i> Error!</h5>
         Username atau Password Salah
       </div>');
-      redirect(url('login'));
+      redirect(url("login"));
     }
 
 }
@@ -46,6 +46,7 @@ if (isset($_POST['login'])) {
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Sign in to start your session</p>
+            <?=$session->pull("info")?>
             <form method="post">
                 <label>Nama Pengguna</label>
                 <div class="form-group has-feedback">
@@ -65,7 +66,6 @@ if (isset($_POST['login'])) {
                     <!-- /.col -->
                 </div>
             </form>
-            <?=$session->pull("info")?>
         </div>
         <!-- /.login-box-body -->
     </div>
