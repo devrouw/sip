@@ -29,8 +29,8 @@
 	        // 	console.log(key);
 
 	        // }
-			out.push("Provinsi: "+f.properties['PROVINSI']);
-			out.push("Kecamatan: "+f.properties['KECAMATAN']);
+			// out.push("Provinsi: "+f.properties['PROVINSI']);
+			// out.push("Kecamatan: "+f.properties['KECAMATAN']);
 			out.push("Contoh: Ini Pop Up manual");
 	        l.bindPopup(out.join("<br />"));
 	    }
@@ -42,19 +42,19 @@
 		return '<i class="icon" style="background-color:'+name+';border-radius:50%"></i>';
 	}
 
-	function featureToMarker(feature, latlng) {
-		return L.marker(latlng, {
-			icon: L.divIcon({
-				className: 'marker-'+feature.properties.amenity,
-				html: iconByName(feature.properties.amenity),
-				iconUrl: '../images/markers/'+feature.properties.amenity+'.png',
-				iconSize: [25, 41],
-				iconAnchor: [12, 41],
-				popupAnchor: [1, -34],
-				shadowSize: [41, 41]
-			})
-		});
-	}
+	// function featureToMarker(feature, latlng) {
+	// 	return L.marker(latlng, {
+	// 		icon: L.divIcon({
+	// 			className: 'marker-'+feature.properties.amenity,
+	// 			html: iconByName(feature.properties.amenity),
+	// 			iconUrl: '../images/markers/'+feature.properties.amenity+'.png',
+	// 			iconSize: [25, 41],
+	// 			iconAnchor: [12, 41],
+	// 			popupAnchor: [1, -34],
+	// 			shadowSize: [41, 41]
+	// 		})
+	// 	});
+	// }
 
 	var baseLayers = [
 		{
@@ -86,7 +86,7 @@
 			$arrayKec[]='{
 			name: "'.$row->nm_kelurahan.'",
 			icon: iconByName("'.$row->warna_maps.'"),
-			layer: new L.GeoJSON.AJAX(["assets/unggah/geojson/'.$row->geojson_kelurahan.'"],{onEachFeature:popUp,style: myStyle'.$row->id_kelurahan.',pointToLayer: featureToMarker }).addTo(map)
+			layer: new L.GeoJSON.AJAX(["assets/unggah/geojson/'.$row->geojson_kelurahan.'"],{onEachFeature:popUp,style: myStyle'.$row->id_kelurahan.' }).addTo(map)
 			}';
 		}
 	?>
