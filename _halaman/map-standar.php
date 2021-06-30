@@ -2,6 +2,7 @@
 $title = 'Map - Standar';
 $judul = $title;
 $url = 'map-standar';
+$setTemplate = true;
 $fileJs = 'leaflet-standarJs';
 ?>
 
