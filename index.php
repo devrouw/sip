@@ -59,4 +59,10 @@ if ($setTemplate == true) {
     </html>
 <?php } else {
     echo $content;
-} ?>
+} 
+
+if(isset($fileJs)){
+    include '_halaman/js/'.$fileJs.'.php';
+}
+
+?>

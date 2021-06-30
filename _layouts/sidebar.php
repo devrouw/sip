@@ -35,14 +35,13 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-sitemap"></i>
-            <span>Transaksi</span>
+            <i class="fa fa-map-marker"></i>
+            <span>One Map</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=url('hotspot')?>"><i class="fa fa-circle-o"></i> Hotspot</a></li>
+            <li><a href="<?=url('map-standar')?>"><i class="fa fa-circle-o"></i> Standar</a></li>
           </ul>
         </li>
 
