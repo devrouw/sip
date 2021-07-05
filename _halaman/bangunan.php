@@ -84,41 +84,77 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
     <?= content_open('Form Data Bangunan') ?>
     <form method="post" enctype="multipart/form-data">
         <?= input_hidden('id_bangunan', $id_bangunan) ?>
-        <div class="form-group">
+        <div class="form-group" class="">
             <label>Foto Bangunan</label>
+            <div class="row">
+            <div class="col-md-6">
             <?= input_text('foto_bangunan', $foto_bangunan) ?>
+            </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Jenis Bangunan</label>
+            <div class="row">
+            <div class="col-md-6">
             <?= input_text('jenis_bangunan', $jenis_bangunan) ?>
+            </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Alamat</label>
+            <div class="row">
+            <div class="col-md-6">
             <?= input_text('alamat', $alamat) ?>
+            </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Longitude</label>
+            <div class="row">
+            <div class="col-md-6">
             <?= input_text('lng', $lng) ?>
+            </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Latitude</label>
+            <div class="row">
+            <div class="col-md-6">
             <?= input_text('lat', $lat) ?>
+            </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Nomor Rumah</label>
+            <div class="row">
+            <div class="col-md-6">
             <?= input_text('nomor_rumah', $nomor_rumah) ?>
+            </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Luas Tanah</label>
+            <div class="row">
+            <div class="col-md-6">
             <?= input_text('luas_tanah', $luas_tanah) ?>
+            </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Luas Bangunan</label>
+            <div class="row">
+            <div class="col-md-6">
             <?= input_text('luas_bangunan', $luas_bangunan) ?>
+            </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Akun Warga</label>
+            <div class="row">
+            <div class="col-md-6">
             <?= input_text('id_warga', $id_warga) ?>
+            </div>
+            </div>
         </div>
         <div class="form-group">
             <button type="submit" name="simpan" class="btn btn-info"> <i class="fa fa-save"></i>Simpan</button>
