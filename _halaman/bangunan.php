@@ -5,10 +5,6 @@ $url = 'bangunan';
 $setTemplate = true;
 
 if (isset($_POST['simpan'])) {
-    $file=upload('geojson_kelurahan','geojson');
-    if($file!=false){
-        $data['geojson_kelurahan']=$file;
-    }
     if ($_POST['id_bangunan'] == "") {
         $data['foto_bangunan'] = $_POST['foto_bangunan'];
         $data['jenis_bangunan'] = $_POST['jenis_bangunan'];
@@ -41,7 +37,7 @@ if (isset($_POST['simpan'])) {
     ?>
         <script type="text/javascript">
             window.alert('Berhasil Diubah');
-            window.location.href = "<?= url('kelurahan') ?>";
+            window.location.href = "<?= url('bangunan') ?>";
         </script>
     <?php }
 }
