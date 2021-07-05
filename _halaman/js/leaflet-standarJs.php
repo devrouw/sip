@@ -6,8 +6,7 @@
 
    <script type="text/javascript">
 
-   	var map = L.map('mapid').setView([-3.824181, 114.8191513], 10);
-
+   	var map = L.map('mapid').setView([-1.2247239770740685, 116.87058583535085], 17);
 
    	var LayerKita=L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 		attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
