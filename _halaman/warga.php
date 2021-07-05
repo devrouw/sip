@@ -1,7 +1,7 @@
 <?php
-$title = 'Data Bangunan';
+$title = 'Data Warga';
 $judul = $title;
-$url = 'bangunan';
+$url = 'warga';
 $setTemplate = true;
 
 if (isset($_POST['simpan'])) {
