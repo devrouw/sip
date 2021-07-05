@@ -55,7 +55,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?=url('bangunan')?>"><i class="fa fa-circle-o"></i> Data Bangunan</a></li>
-            <li><a href="<?=url('leaflet-point')?>"><i class="fa fa-circle-o"></i> Data Warga</a></li>
+            <li><a href="<?=url('warga')?>"><i class="fa fa-circle-o"></i> Data Warga</a></li>
           </ul>
         </li>
         <li>
