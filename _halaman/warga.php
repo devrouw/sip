@@ -24,8 +24,8 @@ if (isset($_POST['simpan'])) {
         $data['password'] = $_POST['password'];
         $data['nama_lengkap'] = $_POST['nama_lengkap'];
         $data['alamat'] = $_POST['alamat'];
-        $data['no_telp'] = $_POST['nomor_rumah'];
-        $data['no_rumah'] = $_POST['luas_tanah'];
+        $data['no_telp'] = $_POST['no_telp'];
+        $data['no_rumah'] = $_POST['no_rumah'];
         $db->where('id_warga', $_POST['id_warga']);
         $db->update("tb_warga", $data);
     ?>
