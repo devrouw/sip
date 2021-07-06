@@ -3,6 +3,7 @@ $title = 'Data Bangunan';
 $judul = $title;
 $url = 'bangunan';
 $setTemplate = true;
+$fileJs = 'leaflet-bangunanJs';
 
 if (isset($_POST['simpan'])) {
     $file=upload('foto_bangunan','bangunan');
@@ -168,7 +169,11 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
             </div>
         </div>
         </div>
+        <div class="col-md-6">
+        <div id="mapid"></div>
+        </div>
         <div class="col-md-12">
+        <hr>
         <div class="form-group">
             <button type="submit" name="simpan" class="btn btn-info"> <i class="fa fa-save"></i>Simpan</button>
             <a href="<?= url($url) ?>" class="btn btn-danger"> <i class="fa fa-reply"></i>Kembali</a>
