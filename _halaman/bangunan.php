@@ -155,13 +155,12 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
             <div class="row">
             <div class="col-md-6">
             <?php
-            $get = $db->ObjectBuilder()->get('tb_warga');
-            foreach ($get as $row) { ?>
-            <option value="<?=$row->id_warga ?>"><?=$row->username?></option>
-            <?php
-            }
-            ?>
-            <?= input_text('id_warga', $id_warga) ?>
+	    		$op['']='Pilih Akun Warga';
+	    		foreach ($db->ObjectBuilder()->get('tb_warga') as $row) {
+	    			$op[$row->id_warga]=$row->nama_lengkap;
+	    			}
+	    	?>
+	    		<?=select('id_warga',$op,$id_warga)?>
             </div>
             </div>
         </div>
@@ -195,7 +194,8 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <tbody>
             <?php
             $no = 1;
-            $get = $db->ObjectBuilder()->get('tb_bangunan');
+            $db->join('tb_warga b','a.id_warga=b.id_warga','LEFT');
+            $get = $db->ObjectBuilder()->get('tb_bangunan a');
             foreach ($get as $row) { ?>
                 <tr>
                     <td><?= $no ?></td>
