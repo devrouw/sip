@@ -115,17 +115,13 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
             </div>
         </div>
         <div class="form-group">
-            <label>Longitude</label>
             <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-5">
+            <label>Longitude</label>
             <?= input_text('lng', $lng) ?>
             </div>
-            </div>
-        </div>
-        <div class="form-group">
+            <div class="col-md-5">
             <label>Latitude</label>
-            <div class="row">
-            <div class="col-md-10">
             <?= input_text('lat', $lat) ?>
             </div>
             </div>
@@ -171,7 +167,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         </div>
         <div class="col-md-6">
         <h3>Pilih Titik</h3>
-        <div id="mapid" style="height:500px"></div>
+        <div id="mapid" style="height:400px"></div>
         </div>
         <div class="col-md-12">
         <hr>
