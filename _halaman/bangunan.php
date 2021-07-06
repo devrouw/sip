@@ -192,7 +192,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
             foreach ($get as $row) { ?>
                 <tr>
                     <td><?= $no ?></td>
-                    <td><img src="<?=assets('unggah/bangunan/'.$row->foto_bangunan)?>"></td>
+                    <td><img src="<?=assets('unggah/bangunan/'.$row->foto_bangunan)?>" style="width:50px;height:50px;"></td>
                     <td><?= $row->jenis_bangunan ?></td>
                     <td><?= $row->alamat ?></td>
                     <td><?= $row->lng ?></td>
