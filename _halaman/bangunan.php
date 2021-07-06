@@ -171,7 +171,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         </div>
         <div class="col-md-6">
         <h3>Pilih Titik</h3>
-        <div id="mapid"></div>
+        <div id="mapid" style="height:500px"></div>
         </div>
         <div class="col-md-12">
         <hr>
