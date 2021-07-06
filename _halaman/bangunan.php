@@ -5,8 +5,11 @@ $url = 'bangunan';
 $setTemplate = true;
 
 if (isset($_POST['simpan'])) {
+    $file=upload('foto_bangunan','bangunan');
+    if($file!=false){
+        $data['foto_bangunan']=$file;
+    }
     if ($_POST['id_bangunan'] == "") {
-        $data['foto_bangunan'] = $_POST['foto_bangunan'];
         $data['jenis_bangunan'] = $_POST['jenis_bangunan'];
         $data['alamat'] = $_POST['alamat'];
         $data['lng'] = $_POST['lng'];
@@ -23,7 +26,6 @@ if (isset($_POST['simpan'])) {
         </script>
     <?php
     } else {
-        $data['foto_bangunan'] = $_POST['foto_bangunan'];
         $data['jenis_bangunan'] = $_POST['jenis_bangunan'];
         $data['alamat'] = $_POST['alamat'];
         $data['lng'] = $_POST['lng'];
@@ -88,7 +90,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
             <label>Foto Bangunan</label>
             <div class="row">
             <div class="col-md-6">
-            <?= input_text('foto_bangunan', $foto_bangunan) ?>
+            <?= input_file('foto_bangunan', $foto_bangunan) ?>
             </div>
             </div>
         </div>
@@ -190,7 +192,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
             foreach ($get as $row) { ?>
                 <tr>
                     <td><?= $no ?></td>
-                    <td><?= $row->foto_bangunan ?></td>
+                    <td><img src="<?=assets('unggah/bangunan/'.$row->foto_bangunan)?>"></td>
                     <td><?= $row->jenis_bangunan ?></td>
                     <td><?= $row->alamat ?></td>
                     <td><?= $row->lng ?></td>
