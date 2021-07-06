@@ -5,8 +5,9 @@
  <script src="assets/js/leaflet.ajax.js"></script>
 
    <script type="text/javascript">
-    var latInput = document.querySelector("[name]=lat");
-    var lngInput = document.querySelector("[name]=lng");
+    var latInput = document.querySelector("[name=lat]");
+    var lngInput = document.querySelector("[name=lng]");
+    var marker;
    	var map = L.map('mapid').setView([-1.224724, 116.870586], 17);
 
    	var LayerKita=L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -17,11 +18,18 @@
 		id: 'mapbox/streets-v11',
 		accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
 		});
+
 	map.addLayer(LayerKita);
 
     map.on("click",function(e){
         var lat = e.latlng.lat;
         var lng = e.latlng.lng;
+
+        if(!marker){
+            marker = L.marker(e.latlng).addTo(map);
+        }else{
+            marker.setLatLng(e.latlng);
+        }
 
         latInput.value = lat;
         lngInput.value = lng;
