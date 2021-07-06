@@ -93,7 +93,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <div class="form-group" class="">
             <label>Foto Bangunan</label>
             <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
             <?= input_file('foto_bangunan', $foto_bangunan) ?>
             </div>
             </div>
@@ -101,7 +101,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <div class="form-group">
             <label>Jenis Bangunan</label>
             <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
             <?= input_text('jenis_bangunan', $jenis_bangunan) ?>
             </div>
             </div>
@@ -109,7 +109,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <div class="form-group">
             <label>Alamat</label>
             <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
             <?= input_text('alamat', $alamat) ?>
             </div>
             </div>
@@ -117,7 +117,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <div class="form-group">
             <label>Longitude</label>
             <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
             <?= input_text('lng', $lng) ?>
             </div>
             </div>
@@ -125,7 +125,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <div class="form-group">
             <label>Latitude</label>
             <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
             <?= input_text('lat', $lat) ?>
             </div>
             </div>
@@ -133,7 +133,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <div class="form-group">
             <label>Nomor Rumah</label>
             <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
             <?= input_text('nomor_rumah', $nomor_rumah) ?>
             </div>
             </div>
@@ -141,7 +141,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <div class="form-group">
             <label>Luas Tanah</label>
             <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
             <?= input_text('luas_tanah', $luas_tanah) ?>
             </div>
             </div>
@@ -149,7 +149,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <div class="form-group">
             <label>Luas Bangunan</label>
             <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
             <?= input_text('luas_bangunan', $luas_bangunan) ?>
             </div>
             </div>
@@ -157,7 +157,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         <div class="form-group">
             <label>Akun Warga</label>
             <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
             <?php
 	    		$op['']='Pilih Akun Warga';
 	    		foreach ($db->ObjectBuilder()->get('tb_warga') as $row) {
@@ -170,6 +170,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
         </div>
         </div>
         <div class="col-md-6">
+        <h3>Pilih Titik</h3>
         <div id="mapid"></div>
         </div>
         <div class="col-md-12">
