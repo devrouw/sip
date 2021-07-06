@@ -157,7 +157,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
             <?php
 	    		$op['']='Pilih Akun Warga';
 	    		foreach ($db->ObjectBuilder()->get('tb_warga') as $row) {
-	    			$op[$row->id_warga]=$row->nama_lengkap;
+	    			$op[$row->id_warga]=$row->username;
 	    			}
 	    	?>
 	    		<?=select('id_warga',$op,$id_warga)?>
@@ -207,7 +207,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
                     <td><?= $row->nomor_rumah ?></td>
                     <td><?= $row->luas_tanah ?></td>
                     <td><?= $row->luas_bangunan ?></td>
-                    <td><?= $row->id_warga ?></td>
+                    <td><?= $row->username ?></td>
                     <td>
                         <a href="<?= url($url . '&ubah&id=' . $row->id_bangunan) ?>" class="btn btn-info"> <i class="fa fa-edit"></i>Ubah</a>
                         <a href="<?= url($url . '&hapus&id=' . $row->id_bangunan) ?>" class="btn btn-danger" onclick="return confirm('Hapus Data?')"> <i class="fa fa-trash"></i>Hapus</a>
