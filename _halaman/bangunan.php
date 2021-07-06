@@ -154,6 +154,13 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
             <label>Akun Warga</label>
             <div class="row">
             <div class="col-md-6">
+            <?php
+            $get = $db->ObjectBuilder()->get('tb_warga');
+            foreach ($get as $row) { ?>
+            <option value="<?=$row->id_warga ?>"><?=$row->username?></option>
+            <?php
+            }
+            ?>
             <?= input_text('id_warga', $id_warga) ?>
             </div>
             </div>
