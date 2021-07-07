@@ -113,7 +113,7 @@
 	foreach($get as $row){
 		$popupContent = "<div>Jenis Bangunan: ".$row->jenis_bangunan."</div><div>Alamat: ".$row->alamat."No. ".$row->nomor_rumah."</div><div>Pemilik: ".$row->nama_lengkap."</div>";
 		?>
-		L.marker([<?=$row->lat?>,<?=$row->lng?>]).addTo(map).bindPopup("popupContent");
+		L.marker([<?=$row->lat?>,<?=$row->lng?>]).addTo(map).bindPopup("<img src=<?=assets('unggah/bangunan/'.$row->foto_bangunan)?> style=width:50px;height:50px;><div>Jenis Bangunan: <?=$row->jenis_bangunan?></div><div>Alamat: <?=$row->alamat?> No. <?=$row->nomor_rumah?></div><div>Pemilik: <?=$row->nama_lengkap?></div>");
 		<?php
 	}
 	?>
