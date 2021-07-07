@@ -107,6 +107,13 @@
 
 	map.addControl(panelLayers);
 
-
+	<?php
+	$get = $db->ObjectBuilder()->get('tb_bangunan');
+	foreach($get as $row){
+		?>
+		L.marker([<?=$row->lat?>,<?=$row->lng?>])
+		<?php
+	}
+	?>
 
    </script>
