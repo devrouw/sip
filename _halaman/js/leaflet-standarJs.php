@@ -111,7 +111,7 @@
 	$get = $db->ObjectBuilder()->get('tb_bangunan');
 	foreach($get as $row){
 		?>
-		L.marker([<?=$row->lat?>,<?=$row->lng?>])
+		L.marker([<?=$row->lat?>,<?=$row->lng?>]).addTo(map);
 		<?php
 	}
 	?>
