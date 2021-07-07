@@ -108,10 +108,12 @@
 	map.addControl(panelLayers);
 
 	<?php
-	$get = $db->ObjectBuilder()->get('tb_bangunan');
+	$db->join('tb_warga b','a.id_warga=b.id_warga','LEFT');
+	$get = $db->ObjectBuilder()->get('tb_bangunan a');
 	foreach($get as $row){
+		$popupContent = "<div>Jenis Bangunan: ".$row->jenis_bangunan."</div><div>Alamat: ".$row->alamat."No. ".$row->nomor_rumah."</div><div>Pemilik: ".$row->nama_lengkap."</div>";
 		?>
-		L.marker([<?=$row->lat?>,<?=$row->lng?>]).addTo(map);
+		L.marker([<?=$row->lat?>,<?=$row->lng?>]).addTo(map).bindPopup("popupContent");
 		<?php
 	}
 	?>
