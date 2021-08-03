@@ -15,6 +15,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($case){
 
 #----------------------------------------------------------------------------------------------------------------------------------------
+case "login":
+    $type_query = "show";
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $query = "SELECT * FROM tb_warga WHERE username='$username' AND password='$password'";
+    $message = 'Data Ada!';
+    
+    include './res.php';
+die();
+break;
+#----------------------------------------------------------------------------------------------------------------------------------------
 case "daftar":
     $type_query = "input";
     $nik = $_POST['nik'];
@@ -169,19 +181,6 @@ case "edit_biodata":
     // $message = 'Data Berhasil Diubah!';
     
     // include './res.php';
-die();
-break;
-
-#----------------------------------------------------------------------------------------------------------------------------------------
-case "login":
-    $type_query = "show";
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $query = "SELECT * FROM tb_masyarakat WHERE email='$email' AND password='$password'";
-    $message = 'Data Ada!';
-    
-    include './res.php';
 die();
 break;
 
