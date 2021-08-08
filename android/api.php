@@ -26,185 +26,28 @@ case "login":
     include './res.php';
 die();
 break;
+
 #----------------------------------------------------------------------------------------------------------------------------------------
-case "daftar":
+case "input_penghuni":
     $type_query = "input";
     $nik = $_POST['nik'];
     $nama_lengkap = $_POST['nama_lengkap'];
     $tempat_lahir = $_POST['tempat_lahir'];
-    $tanggal_lahir = $_POST['tanggal_lahir'];
+    $tgl_lahir = $_POST['tgl_lahir'];
+    $status_kawin = $_POST['status_kawin'];
+    $kewarganegaraan = $_POST['kewarganegaraan'];
     $jenis_kelamin = $_POST['jenis_kelamin'];
-    $alamat = $_POST['alamat'];
-    $email = $_POST['email'];
-    $no_telepon = $_POST['no_telepon'];
-    $kode_pos = $_POST['kode_pos'];
-    $kabupaten = $_POST['kabupaten'];
-    $kecamatan = $_POST['kecamatan'];
-    $kelurahan = $_POST['kelurahan'];
-    $foto_profil = $_POST['foto_profil'];
-    $nama_foto = $_POST['nama_foto'];
-    $s = substr(str_shuffle(str_repeat("!@#$%^&*()0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", 6)), 0, 6);
-    $realImage = base64_decode($foto_profil);
+    $pekerjaan = $_POST['pekerjaan'];
+    $goldar = $_POST['goldar'];
+    $ket_tambahan = $_POST['ket_tambahan'];
+    $id_bangunan_fk = $_POST['id_bangunan_fk'];
 
-    $query = "INSERT INTO tb_masyarakat(
-        nik,nama_lengkap,tempat_lahir,tgl_lahir,jenis_kelamin,alamat,email,password,no_telpon,kode_pos,kabupaten,kecamatan,kelurahan,foto_profil
+    $query = "INSERT INTO tb_penghuni(
+        nik,nama_lengkap,tempat_lahir,tgl_lahir,status_kawin,kewarganegaraan,jenis_kelamin,pekerjaan,goldar,ket_tambahan,id_bangunan_fk
     ) VALUES(
-        '$nik','$nama_lengkap','$tempat_lahir','$tanggal_lahir','$jenis_kelamin','$alamat','$email','$s','$no_telepon','$kode_pos','$kabupaten','$kecamatan','$kelurahan','$nama_foto'
+        '$nik','$nama_lengkap','$tempat_lahir','$tgl_lahir','$status_kawin','$kewarganegaraan','$jenis_kelamin','$pekerjaan','$goldar','$ket_tambahan','$id_bangunan_fk'
     )";
 
-    $hasil = mysqli_multi_query($con,$query);
-    if($hasil){
-        file_put_contents("../assets/unggah/".$nama_foto,$realImage);
-        
-        $response["code"] = 200;
-        $response["status"] = "OK";
-        $response["data"] = "data berhasil diinput.";
-        $response["message"] = "Berhasil Mendaftar!";
-        $subject = 'Akun Anda Berhasil dibuat';
-        echo json_encode($response);
-
-        $message = "
-        <html>
-        <head>
-        <title>Akun Berhasil Dibuat</title>
-        </head>
-        <body>
-        <h3>Selamat! Akun Anda berhasil dibuat! Silakan login menggunakan informasi berikut:</h3>
-        <br>
-        <b>Email: <b> ".$email."
-        <br>
-        <b>Password: ".$s."</b>
-        </body>
-        </html>
-        ";
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= 'From: info@sha-dev.com'       . "\r\n" .
-                    'Reply-To: info@sha-dev.com' . "\r\n" .
-                    'X-Mailer: PHP/' . phpversion();
-
-        mail($email, $subject, $message, $headers);
-    }else
-    {
-        $response["code"] = 404;
-        $response["status"] = "error";
-        $response["data"] = "data gagal diinput";
-        $response["message"] = "NIK sudah terdaftar";
-        
-        echo json_encode($response);
-
-    }
-
-    // $message = 'Data Berhasil Diinput!';
-    
-    // include './res.php';
-die();
-break;
-
-
-#----------------------------------------------------------------------------------------------------------------------------------------
-case "edit_biodata":
-    $type_query = "update";
-    $nik = $_POST['nik'];
-    $nama_lengkap = $_POST['nama_lengkap'];
-    $tempat_lahir = $_POST['tempat_lahir'];
-    $tanggal_lahir = $_POST['tanggal_lahir'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $alamat = $_POST['alamat'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $no_telepon = $_POST['no_telepon'];
-    $kode_pos = $_POST['kode_pos'];
-    $kabupaten = $_POST['kabupaten'];
-    $kecamatan = $_POST['kecamatan'];
-    $kelurahan = $_POST['kelurahan'];
-    $foto_profil = $_POST['foto_profil'];
-    $nama_foto = $_POST['nama_foto'];
-
-    if($nama_foto == ""){
-        $query = "UPDATE tb_masyarakat SET
-        nama_lengkap = '$nama_lengkap',
-        tempat_lahir = '$tempat_lahir',
-        tgl_lahir = '$tanggal_lahir',
-        jenis_kelamin = '$jenis_kelamin',
-        alamat = '$alamat',
-        email = '$email',
-        password = '$password',
-        no_telpon = '$no_telepon',
-        kode_pos = '$kode_pos',
-        kabupaten = '$kabupaten',
-        kecamatan = '$kecamatan',
-        kelurahan = '$kelurahan'
-        WHERE nik = '$nik'";
-    }else{
-        $realImage = base64_decode($foto_profil);
-        $query = "UPDATE tb_masyarakat SET
-        nama_lengkap = '$nama_lengkap',
-        tempat_lahir = '$tempat_lahir',
-        tgl_lahir = '$tanggal_lahir',
-        jenis_kelamin = '$jenis_kelamin',
-        alamat = '$alamat',
-        email = '$email',
-        password = '$password',
-        no_telpon = '$no_telepon',
-        kode_pos = '$kode_pos',
-        kabupaten = '$kabupaten',
-        kecamatan = '$kecamatan',
-        kelurahan = '$kelurahan',
-        foto_profil = '$nama_foto'
-        WHERE nik = '$nik'";
-    }
-    
-
-    $hasil = mysqli_multi_query($con,$query);
-    if($hasil){
-        if($nama_foto != ""){
-            file_put_contents("../assets/unggah/".$nama_foto,$realImage);
-        }
-        
-        $response["code"] = 200;
-        $response["status"] = "OK";
-        $response["data"] = "data berhasil diinput.";
-        $response["message"] = "Data berhasil diinput";
-        echo json_encode($response);
-    }else
-    {
-        $response["code"] = 404;
-        $response["status"] = "error";
-        $response["data"] = "data gagal diinput.";
-        $response["message"] = "input error";
-        
-        echo json_encode($response);
-
-    }
-
-    // $message = 'Data Berhasil Diubah!';
-    
-    // include './res.php';
-die();
-break;
-
-#----------------------------------------------------------------------------------------------------------------------------------------
-case "input_aduan":
-    $type_query = "input";
-    $nama_foto = $_POST['nama_foto'];
-    $foto_aduan = $_POST['foto_aduan'];
-    $pesan = $_POST['pesan'];
-    $no_telpon = $_POST['no_telpon'];
-    $lng = $_POST['lng'];
-    $lat = $_POST['lat'];
-    $kategori = $_POST['kategori'];
-    $nik = $_POST['nik'];
-    $id_dinas = $_POST['id_dinas'];
-    $realImage = base64_decode($foto_aduan);
-
-    file_put_contents("../assets/unggah/".$nama_foto,$realImage);
-
-    $query = "INSERT INTO tb_pengaduan(
-        foto_aduan,pesan,no_telpon,lng,lat,kategori,id_dinas,nik,status
-    ) VALUES(
-        '$nama_foto','$pesan','$no_telpon','$lng','$lat','$kategori','1','$nik','0'
-    )";
     $message = 'Data Berhasil diinput!';
     
     include './res.php';
@@ -212,10 +55,11 @@ die();
 break;
 
 #----------------------------------------------------------------------------------------------------------------------------------------
-case "list_dinas":
+case "show_penghuni":
     $type_query = "show";
+    $id_bangunan = $_POST['id_bangunan'];
 
-    $query = "SELECT * FROM tb_dinas";
+    $query = "SELECT * FROM tb_penghuni WHERE id_bangunan_fk='$id_bangunan'";
     $message = 'Data Ada!';
     
     include './res.php';
@@ -223,43 +67,11 @@ die();
 break;
 
 #----------------------------------------------------------------------------------------------------------------------------------------
-case "list_aduan":
+case "show_bangunan_by_id":
     $type_query = "show";
-    $nik = $_POST['nik'];
-
-    $query = "SELECT * FROM tb_pengaduan WHERE nik='$nik'";
-    $message = 'Data Ada!';
+    $id_bangunan = $_POST['id_bangunan'];
     
-    include './res.php';
-die();
-break;
-
-#----------------------------------------------------------------------------------------------------------------------------------------
-case "list_perbaikan":
-    $type_query = "show";
-    $nik = $_POST['nik'];
-
-    $query = "SELECT * FROM tb_perbaikan JOIN tb_pengaduan ON tb_perbaikan.id_aduan=tb_pengaduan.id_pengaduan JOIN tb_dinas ON tb_pengaduan.id_dinas=tb_dinas.id WHERE tb_pengaduan.nik='$nik'";
-    $message = 'Data Ada!';
-    
-    include './res.php';
-die();
-break;
-
-#----------------------------------------------------------------------------------------------------------------------------------------
-case "detail_perbaikan":
-    $type_query = "show";
-    $nik = $_POST['nik'];
-    // $id = $_POST['id'];
-    $id_aduan = $_POST['id_aduan'];
-    
-    $query = "SELECT * FROM tb_pengaduan LEFT JOIN tb_perbaikan ON tb_pengaduan.id_pengaduan=tb_perbaikan.id_aduan JOIN tb_dinas ON tb_pengaduan.id_dinas=tb_dinas.id JOIN tb_masyarakat ON tb_pengaduan.nik=tb_masyarakat.nik WHERE tb_pengaduan.id_pengaduan='$id_aduan'";
-
-    // if($id == "0"){
-    //     $query = "SELECT * FROM tb_pengaduan LEFT JOIN tb_perbaikan ON tb_pengaduan.id_pengaduan=tb_perbaikan.id_aduan JOIN tb_dinas ON tb_pengaduan.id_dinas=tb_dinas.id JOIN tb_masyarakat ON tb_pengaduan.nik=tb_masyarakat.nik WHERE tb_pengaduan.id_pengaduan='$id_aduan'";
-    // }else{
-    //     $query = "SELECT * FROM tb_perbaikan JOIN tb_pengaduan ON tb_perbaikan.id_aduan=tb_pengaduan.id_pengaduan JOIN tb_dinas ON tb_pengaduan.id_dinas=tb_dinas.id JOIN tb_masyarakat ON tb_pengaduan.nik=tb_masyarakat.nik WHERE tb_perbaikan.id_aduan='$id_aduan'";
-    // }
+    $query = "SELECT * FROM tb_bangunan WHERE id_bangunan='$id_bangunan'";
 
     $message = 'Data Ada!';
     
@@ -268,11 +80,11 @@ die();
 break;
 
 #----------------------------------------------------------------------------------------------------------------------------------------
-case "biodata":
+case "show_bangunan":
     $type_query = "show";
-    $nik = $_POST['nik'];
+    $id_warga = $_POST['id_warga'];
 
-    $query = "SELECT * FROM tb_masyarakat WHERE nik='$nik'";
+    $query = "SELECT * FROM tb_bangunan WHERE id_warga='$id_warga'";
     $message = 'Data Ada!';
     
     include './res.php';
