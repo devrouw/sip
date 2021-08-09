@@ -184,7 +184,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
     <?= content_open('Data Bangunan') ?>
     <a href="<?= url($url . '&tambah') ?>" class="btn btn-success"><i class="fa fa-plus"></i>Tambah</a>
     <hr>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-striped" id="example">
         <thead>
             <tr>
                 <th>No</th>
