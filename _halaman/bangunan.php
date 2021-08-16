@@ -191,8 +191,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
                 <th>Foto Bangunan</th>
                 <th>Jenis Bangunan</th>
                 <th>Alamat</th>
-                <th>Lng</th>
-                <th>Lat</th>
+                <th>Lokasi</th>
                 <th>No.Rumah</th>
                 <th>Luas Tanah</th>
                 <th>Luas Bangunan</th>
@@ -211,8 +210,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
                     <td><img src="<?=assets('unggah/bangunan/'.$row->foto_bangunan)?>" style="width:50px;height:50px;"></td>
                     <td><?= $row->jenis_bangunan ?></td>
                     <td><?= $row->alamat ?></td>
-                    <td><?= $row->lng ?></td>
-                    <td><?= $row->lat ?></td>
+                    <td><a href="http://maps.google.com/maps?q=<?= $row->lat ?>,<?= $row->lng ?>" target="_BLANK"><?= $row->lat ?>,<?= $row->lng ?></a></td>
                     <td><?= $row->nomor_rumah ?></td>
                     <td><?= $row->luas_tanah ?></td>
                     <td><?= $row->luas_bangunan ?></td>
