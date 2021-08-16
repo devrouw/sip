@@ -196,8 +196,8 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
                     <td><?= $row->goldar ?></td>
                     <td><?= $row->ket_tambahan ?></td>
                     <td>
-                        <a href="<?= url($url . '&ubah&id=' . $row->id_warga) ?>" class="btn btn-info"> <i class="fa fa-edit"></i></a>
-                        <a href="<?= url($url . '&hapus&id=' . $row->id_warga) ?>" class="btn btn-danger" onclick="return confirm('Hapus Data?')"> <i class="fa fa-trash"></i></a>
+                        <a href="<?= url($url . '&ubah&nik=' . $row->nik) ?>" class="btn btn-info"> <i class="fa fa-edit"></i></a>
+                        <a href="<?= url($url . '&hapus&nik=' . $row->nik) ?>" class="btn btn-danger" onclick="return confirm('Hapus Data?')"> <i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             <?php
