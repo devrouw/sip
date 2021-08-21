@@ -67,6 +67,49 @@ die();
 break;
 
 #----------------------------------------------------------------------------------------------------------------------------------------
+case "show_penghuni_by_id":
+    $type_query = "show";
+    $nik = $_POST['nik'];
+
+    $query = "SELECT * FROM tb_penghuni WHERE nik='$nik'";
+    $message = 'Data Ada!';
+    
+    include './res.php';
+die();
+break;
+
+#----------------------------------------------------------------------------------------------------------------------------------------
+case "update_penghuni":
+    $type_query = "update";
+    $nik = $_POST['nik'];
+    $nama_lengkap = $_POST['nama_lengkap'];
+    $tempat_lahir = $_POST['tempat_lahir'];
+    $tgl_lahir = $_POST['tgl_lahir'];
+    $status_kawin = $_POST['status_kawin'];
+    $kewarganegaraan = $_POST['kewarganegaraan'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $pekerjaan = $_POST['pekerjaan'];
+    $goldar = $_POST['goldar'];
+    $ket_tambahan = $_POST['ket_tambahan'];
+
+    $query = "UPDATE tb_penghuni SET 
+    nama_lengkap=$nama_lengkap,
+    tempat_lahir=$tempat_lahir,
+    tgl_lahir=$tgl_lahir,
+    status_kawin=$status_kawin,
+    kewarganegaraan=$kewarganegaraan,
+    jenis_kelamin=$jenis_kelamin,
+    pekerjaan=$pekerjaan,
+    goldar=$goldar,
+    ket_tambahan=$ket_tambahan 
+    WHERE nik='$nik'";
+    $message = 'Data Ada!';
+    
+    include './res.php';
+die();
+break;
+
+#----------------------------------------------------------------------------------------------------------------------------------------
 case "show_bangunan_by_id":
     $type_query = "show";
     $id_bangunan = $_POST['id_bangunan'];
