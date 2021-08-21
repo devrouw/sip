@@ -93,15 +93,15 @@ case "update_penghuni":
     $ket_tambahan = $_POST['ket_tambahan'];
 
     $query = "UPDATE tb_penghuni SET 
-    nama_lengkap=$nama_lengkap,
-    tempat_lahir=$tempat_lahir,
-    tgl_lahir=$tgl_lahir,
-    status_kawin=$status_kawin,
-    kewarganegaraan=$kewarganegaraan,
-    jenis_kelamin=$jenis_kelamin,
-    pekerjaan=$pekerjaan,
-    goldar=$goldar,
-    ket_tambahan=$ket_tambahan 
+    nama_lengkap='$nama_lengkap',
+    tempat_lahir='$tempat_lahir',
+    tgl_lahir='$tgl_lahir',
+    status_kawin='$status_kawin',
+    kewarganegaraan='$kewarganegaraan',
+    jenis_kelamin='$jenis_kelamin',
+    pekerjaan='$pekerjaan',
+    goldar='$goldar',
+    ket_tambahan='$ket_tambahan' 
     WHERE nik='$nik'";
     $message = 'Data Ada!';
     
