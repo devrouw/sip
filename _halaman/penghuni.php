@@ -209,9 +209,9 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
                     <td><?= $row->ket_tambahan ?></td>
                     <td><?php if($row->status == "2"){
                         echo "Ditolak";
-                    }else if($row->status == "1"){ ?>
-                        <a href="<?= url($url . '&ubah&nik=' . $row->nik) ?>" class="btn btn-info"> <i class="fa fa-edit"></i></a>
-                    <?php } else{?>
+                    }else if($row->status == "1"){
+                        echo "Diterima";
+                    } else{?>
                         <a href="<?= url($url . '&ubah&nik=' . $row->nik) ?>" class="btn btn-info"> <i class="fa fa-edit"></i></a>
                         <a href="<?= url($url . '&hapus&nik=' . $row->nik) ?>" class="btn btn-danger" onclick="return confirm('Reject Data?')"> <i class="fa fa-remove"></i></a>
                     <?php } ?>
