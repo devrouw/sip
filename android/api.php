@@ -43,9 +43,9 @@ case "input_penghuni":
     $id_bangunan_fk = $_POST['id_bangunan_fk'];
 
     $query = "INSERT INTO tb_penghuni(
-        nik,nama_lengkap,tempat_lahir,tgl_lahir,status_kawin,kewarganegaraan,jenis_kelamin,pekerjaan,goldar,ket_tambahan,id_bangunan_fk
+        nik,nama_lengkap,tempat_lahir,tgl_lahir,status_kawin,kewarganegaraan,jenis_kelamin,pekerjaan,goldar,ket_tambahan,id_bangunan_fk,status
     ) VALUES(
-        '$nik','$nama_lengkap','$tempat_lahir','$tgl_lahir','$status_kawin','$kewarganegaraan','$jenis_kelamin','$pekerjaan','$goldar','$ket_tambahan','$id_bangunan_fk'
+        '$nik','$nama_lengkap','$tempat_lahir','$tgl_lahir','$status_kawin','$kewarganegaraan','$jenis_kelamin','$pekerjaan','$goldar','$ket_tambahan','$id_bangunan_fk','0'
     )";
 
     $message = 'Data Berhasil diinput!';
@@ -59,7 +59,7 @@ case "show_penghuni":
     $type_query = "show";
     $id_bangunan = $_POST['id_bangunan'];
 
-    $query = "SELECT * FROM tb_penghuni WHERE id_bangunan_fk='$id_bangunan'";
+    $query = "SELECT * FROM tb_penghuni WHERE id_bangunan_fk='$id_bangunan' AND status='1'";
     $message = 'Data Ada!';
     
     include './res.php';
