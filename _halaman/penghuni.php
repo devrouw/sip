@@ -45,7 +45,7 @@ if (isset($_POST['simpan'])) {
 if (isset($_GET['approve'])) {
     $data['status']='1';
     $db->where('nik', $_GET['nik']);
-    $db->update("tb_penghuni"); ?>
+    $db->update("tb_penghuni",$data); ?>
     <script type="text/javascript">
         window.alert('Berhasil Di Approve');
         window.location.href = "<?= url('penghuni') ?>";
@@ -55,7 +55,7 @@ if (isset($_GET['approve'])) {
 if (isset($_GET['hapus'])) {
     $data['status']='2';
     $db->where('nik', $_GET['nik']);
-    $db->update("tb_penghuni"); ?>
+    $db->update("tb_penghuni",$data); ?>
     <script type="text/javascript">
         window.alert('Berhasil Di Reject');
         window.location.href = "<?= url('penghuni') ?>";
