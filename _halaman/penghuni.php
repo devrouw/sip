@@ -50,7 +50,7 @@ if (isset($_GET['approve'])) {
         window.alert('Berhasil Di Approve');
         window.location.href = "<?= url('penghuni') ?>";
     </script>
-    }
+    <?php }
 
 if (isset($_GET['hapus'])) {
     $data['status']='2';
