@@ -42,11 +42,22 @@ if (isset($_POST['simpan'])) {
     <?php }
 }
 
-if (isset($_GET['hapus'])) {
+if (isset($_GET['approve'])) {
+    $data['status']='1';
     $db->where('nik', $_GET['nik']);
-    $db->delete("tb_penghuni"); ?>
+    $db->update("tb_penghuni"); ?>
     <script type="text/javascript">
-        window.alert('Berhasil Dihapus');
+        window.alert('Berhasil Di Approve');
+        window.location.href = "<?= url('penghuni') ?>";
+    </script>
+    }
+
+if (isset($_GET['hapus'])) {
+    $data['status']='2';
+    $db->where('nik', $_GET['nik']);
+    $db->update("tb_penghuni"); ?>
+    <script type="text/javascript">
+        window.alert('Berhasil Di Reject');
         window.location.href = "<?= url('penghuni') ?>";
     </script>
 <?php }
@@ -156,6 +167,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
             </div>
         </div>
         <div class="form-group">
+            <a href="<?= url($url . '&approve&nik=' . $row->nik) ?>" class="btn btn-success">Approve</a>
             <button type="submit" name="simpan" class="btn btn-info"> <i class="fa fa-save"></i>Simpan</button>
             <a href="<?= url($url) ?>" class="btn btn-danger"> <i class="fa fa-reply"></i>Kembali</a>
         </div>
@@ -197,7 +209,7 @@ if (isset($_GET['tambah']) or isset($_GET['ubah'])) {
                     <td><?= $row->ket_tambahan ?></td>
                     <td>
                         <a href="<?= url($url . '&ubah&nik=' . $row->nik) ?>" class="btn btn-info"> <i class="fa fa-edit"></i></a>
-                        <a href="<?= url($url . '&hapus&nik=' . $row->nik) ?>" class="btn btn-danger" onclick="return confirm('Hapus Data?')"> <i class="fa fa-trash"></i></a>
+                        <a href="<?= url($url . '&hapus&nik=' . $row->nik) ?>" class="btn btn-danger" onclick="return confirm('Reject Data?')"> <i class="fa fa-remove"></i></a>
                     </td>
                 </tr>
             <?php
